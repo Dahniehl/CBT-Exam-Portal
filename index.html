@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBT Exam Portal — EduTest</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+  PAGE 1: LOGIN
+══════════════════════════════════════ -->
+<div class="page active" id="page-login">
+  <div class="login-wrapper">
+
+    <div class="school-header">
+      <div class="school-logo">🎓</div>
+      <h1>EduTest CBT Portal</h1>
+      <p>Computer-Based Testing System • 2024/2025</p>
+    </div>
+
+    <div class="login-card">
+      <h2>Student Login</h2>
+
+      <div id="login-form">
+        <div class="form-group">
+          <label for="input-reg">Registration Number</label>
+          <input type="text" id="input-reg" placeholder="e.g. REG/2024/001" autocomplete="off" spellcheck="false" />
+        </div>
+
+        <div class="form-group">
+          <label for="input-pass">Password</label>
+          <input type="password" id="input-pass" placeholder="Enter your password" />
+        </div>
+
+        <div class="form-group">
+          <label for="select-exam">Select Exam</label>
+          <select id="select-exam">
+            <option value="">— Choose Subject —</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="english">English Language</option>
+            <option value="biology">Biology</option>
+          </select>
+        </div>
+
+        <button class="btn-login" id="btn-login">Login &amp; Proceed →</button>
+
+        <div class="error-msg" id="login-error"></div>
+      </div>
+
+      <div class="demo-hint">
+        🧪 <strong>Demo Account</strong><br/>
+        Reg No: &nbsp;<strong>REG/2024/001</strong><br/>
+        Password: <strong>demo123</strong>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  PAGE 2: PROFILE CONFIRMATION
+══════════════════════════════════════ -->
+<div class="page" id="page-profile">
+  <div class="profile-card">
+    <img class="profile-avatar" id="profile-photo" src="" alt="Student Photo" />
+    <div class="profile-name" id="profile-name">—</div>
+    <div class="profile-reg" id="profile-reg">—</div>
+    <div class="profile-badge" id="profile-class">—</div>
+
+    <div class="profile-exam-info">
+      <div class="row">
+        <span>Subject</span>
+        <span id="profile-subject">—</span>
+      </div>
+      <div class="row">
+        <span>No. of Questions</span>
+        <span id="profile-questions">—</span>
+      </div>
+      <div class="row">
+        <span>Time Allowed</span>
+        <span id="profile-duration">—</span>
+      </div>
+    </div>
+
+    <button class="btn-proceed" id="btn-proceed">Proceed to Examination →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  PAGE 3: EXAM
+══════════════════════════════════════ -->
+<div class="page" id="page-exam">
+
+  <!-- Top Bar -->
+  <div class="exam-topbar">
+    <div class="subject-tag">
+      📝 <span id="exam-subject">Subject</span>
+    </div>
+
+    <div class="timer-block">
+      <span class="timer-icon">⏱</span>
+      <div class="timer-display" id="timer-display">00:00</div>
+    </div>
+
+    <div class="student-mini">
+      <img id="exam-student-photo" src="" alt="Student" />
+      <div>
+        <strong id="exam-student-name" class="student-name">—</strong>
+        <small id="exam-student-class">—</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="exam-body">
+
+    <!-- Question Panel -->
+    <div class="question-panel">
+      <div class="question-counter" id="q-counter">Question 1 of 10</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill" style="width:10%"></div>
+      </div>
+
+      <div class="question-text" id="question-text">Loading question…</div>
+
+      <div class="options-list" id="options-list"></div>
+
+      <div class="exam-nav">
+        <button class="btn-nav btn-prev" id="btn-prev">← Previous</button>
+        <button class="btn-nav btn-next" id="btn-next">Next →</button>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="question-grid-sidebar">
+      <div class="sidebar-title">Questions</div>
+      <div class="q-grid" id="q-grid"></div>
+
+      <div class="sidebar-legend" style="margin-top:20px;">
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--accent);"></div>
+          <span>Current</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--accent-dim); border:1px solid var(--accent);"></div>
+          <span>Answered</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background:var(--navy-mid); border:1px solid var(--border);"></div>
+          <span>Not Answered</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  PAGE 4: FINISHED
+══════════════════════════════════════ -->
+<div class="page" id="page-finish">
+  <div class="finish-card">
+    <div class="finish-icon" id="finish-icon">🎉</div>
+    <h2 id="finish-title">Paper Completed!</h2>
+    <p>
+      <strong id="finish-subject">Subject</strong><br/>
+      <span id="finish-message">You have completed all questions.</span>
+    </p>
+
+    <div class="finish-stats">
+      <div class="stat-box">
+        <div class="stat-num" id="stat-answered">—</div>
+        <div class="stat-label">Answered</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="stat-unanswered">—</div>
+        <div class="stat-label">Unanswered</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="stat-total">—</div>
+        <div class="stat-label">Total Questions</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="stat-time">—</div>
+        <div class="stat-label">Time Spent</div>
+      </div>
+    </div>
+
+    <div class="finish-actions">
+      <button class="btn-finish primary" id="btn-submit-paper">📤 Finish &amp; Submit Paper</button>
+      <button class="btn-finish secondary" id="btn-exit-paper">🚪 Exit Without Submitting</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
